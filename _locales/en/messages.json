@@ -1,21 +1,26 @@
 {
   "extensionName": {
-    "message": "Context menu demo",
+    "message": "Copy Link/Tab Name and URL",
     "description": "Name of the extension."
   },
 
   "extensionDescription": {
-    "message": "Demonstrates the contextMenus API.",
+    "message": "Copy the name and URL of a link or a Tab.",
     "description": "Description of the add-on."
   },
   
   "contextMenuItemOnLink": {
-    "message": "Copy link name and URL",
+    "message": "Copy Link Text and URL",
     "description": "link"
   },
   
   "contextMenuItemOnTab": {
-    "message": "Copy tab title and URL",
+    "message": "Copy Tab Title and URL",
+    "description": "tab"
+  },
+  "OptionsLegend": {
+    "message": "Format. %T = link text, %U = link url",
     "description": "tab"
   }
+  
 }

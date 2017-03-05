@@ -44,11 +44,21 @@ var _linkinfo;
 
 function CopyOnLink(info,tab)
 {
-    browser.tabs.sendMessage(tab.id, _linkinfo.url+ ' '+ _linkinfo.name);
+  var gettingItem = browser.storage.local.get('format');
+  gettingItem.then((res) => {
+    formatvalue = res.format || '%U %T';
+    browser.tabs.sendMessage(tab.id, formatvalue.replace('%U',_linkinfo.url).replace('%T',_linkinfo.name));
+  });
+    //browser.tabs.sendMessage(tab.id, _linkinfo.url+ ' '+ _linkinfo.name);
 }
 function CopyOnTab(tab)
 {
-    browser.tabs.sendMessage(tab.id,tab.url+ ' '+ tab.title);
+  var gettingItem = browser.storage.local.get('format');
+  gettingItem.then((res) => {
+    formatvalue = res.format || '%U %T';
+    browser.tabs.sendMessage(tab.id, formatvalue.replace('%U',tab.url).replace('%T', tab.title));
+  });
+    //browser.tabs.sendMessage(tab.id,tab.url+ ' '+ tab.title);
 }
 
 /*
