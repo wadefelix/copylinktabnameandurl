@@ -1,8 +1,8 @@
 {
 
   "manifest_version": 2,
-  "name": "Copy Link/Tab Name and URL N",
-  "description": "Copy the name and URL of a link or a Tab.",
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
   
   "version": "2.0",
   "default_locale": "en",

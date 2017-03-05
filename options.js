@@ -15,5 +15,6 @@ function restoreOptions() {
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.querySelector("form").addEventListener("submit", saveOptions);
 
-
-//document.getElementById("optionslegend").setAttribute("value",browser.i18n.getMessage("contextMenuItemOnLink")) ;
+document.getElementById("optionslegend").innerText = browser.i18n.getMessage("stringOptionsLegend");
+document.getElementById("Options").innerText = browser.i18n.getMessage("stringOptions");
+document.getElementById("btnsave").innerText = browser.i18n.getMessage("stringSave");

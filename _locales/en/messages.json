@@ -18,9 +18,19 @@
     "message": "Copy Tab Title and URL",
     "description": "tab"
   },
-  "OptionsLegend": {
+  "stringOptionsLegend": {
     "message": "Format. %T = link text, %U = link url",
-    "description": "tab"
+    "description": "string"
+  },
+  
+  "stringSave": {
+    "message": "Save",
+    "description": "string"
+  },
+  
+  "stringOptions": {
+    "message": "Options",
+    "description": "string"
   }
   
 }

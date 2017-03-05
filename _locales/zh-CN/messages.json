@@ -19,8 +19,18 @@
     "description": "tab"
   },
   
-  "OptionsLegend": {
+  "stringOptionsLegend": {
     "message": "格式. %T = 链接文本, %U = 链接地址",
-    "description": "格式"
-  } 
+    "description": "string"
+  },
+  
+  "stringSave": {
+    "message": "保存",
+    "description": "string"
+  },
+  
+  "stringOptions": {
+    "message": "选项",
+    "description": "string"
+  }
 }
