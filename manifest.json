@@ -1,0 +1,35 @@
+{
+
+  "manifest_version": 2,
+  "name": "Copy Link/Tab Name and URL N",
+  "description": "Copy the name and URL of a link or a Tab.",
+  
+  "version": "2.0",
+  "default_locale": "en",
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"]
+    }
+  ],
+  
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "tabs",
+    "clipboardWrite"
+  ],
+  
+  "icons": {
+    "16": "icons/page-16.png",
+    "32": "icons/page-32.png",
+    "48": "icons/page-48.png"
+  }
+
+
+}

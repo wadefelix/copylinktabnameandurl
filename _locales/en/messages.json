@@ -1,0 +1,21 @@
+{
+  "extensionName": {
+    "message": "Context menu demo",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "Demonstrates the contextMenus API.",
+    "description": "Description of the add-on."
+  },
+  
+  "contextMenuItemOnLink": {
+    "message": "Copy link name and URL",
+    "description": "link"
+  },
+  
+  "contextMenuItemOnTab": {
+    "message": "Copy tab title and URL",
+    "description": "tab"
+  }
+}
