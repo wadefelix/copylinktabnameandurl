@@ -8,13 +8,18 @@ function CopyLinkNameandurlToClipboard(msg)
     txtToCopy.value = msg;
     document.body.appendChild(txtToCopy);
     txtToCopy.select();
-
-    console.log(txtToCopy.value);
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('Copying text command was ' + msg);
-
-    //txtToCopy.parentNode.removeChild(txtToCopy);
+    document.execCommand('copy');
+    txtToCopy.parentNode.removeChild(txtToCopy);
 }
 
 browser.runtime.onMessage.addListener(CopyLinkNameandurlToClipboard);
+
+window.addEventListener("contextmenu", notifyExtension);
+
+function notifyExtension(e) {
+  if (e.target.tagName != "A") {
+    return;
+  }
+  var ele = e.target;
+  browser.runtime.sendMessage({"url": ele.href, "name":ele.innerHTML});
+}
