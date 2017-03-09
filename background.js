@@ -37,7 +37,7 @@ browser.contextMenus.create({
 browser.contextMenus.create({
   id: "clnu-tab-context-n",
   title: browser.i18n.getMessage("contextMenuItemOnTab"),
-  contexts: ["all"]
+  contexts: ["tab"]
 }, onCreated);
 
 var _linkinfo;

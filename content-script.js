@@ -14,9 +14,9 @@ function CopyLinkNameandurlToClipboard(msg)
 
 browser.runtime.onMessage.addListener(CopyLinkNameandurlToClipboard);
 
-window.addEventListener("contextmenu", notifyExtension);
+window.addEventListener("contextmenu", notifyClnuExtensionBackgroudjs);
 
-function notifyExtension(e) {
+function notifyClnuExtensionBackgroudjs(e) {
   if (e.target.tagName != "A") {
     return;
   }
