@@ -34,11 +34,25 @@ browser.contextMenus.create({
   title: browser.i18n.getMessage("contextMenuItemOnLink"),
   contexts: ["link"]
 }, onCreated);
-browser.contextMenus.create({
+
+function createContextMenuItemOnTab(info) {
+  console.log(info.name);
+  console.log(info.version);
+  mainversn = parseInt(info.version.split(".",1)[0]);
+  console.log(mainversn);
+  var onwhat = 'tab';
+  if (mainversn<53) {onwhat="all";}
+  
+  browser.contextMenus.create({
   id: "clnu-tab-context-n",
   title: browser.i18n.getMessage("contextMenuItemOnTab"),
-  contexts: ["tab"]
-}, onCreated);
+  contexts: [onwhat]
+  }, onCreated);
+}
+var gettingInfo = browser.runtime.getBrowserInfo();
+gettingInfo.then(createContextMenuItemOnTab);
+
+
 
 var _linkinfo; //保存contentjs发送来的链接信息
 browser.runtime.onMessage.addListener(function (info) {
