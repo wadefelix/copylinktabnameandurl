@@ -40,7 +40,10 @@ browser.contextMenus.create({
   contexts: ["tab"]
 }, onCreated);
 
-var _linkinfo;
+var _linkinfo; //保存contentjs发送来的链接信息
+browser.runtime.onMessage.addListener(function (info) {
+  _linkinfo = info;
+});
 
 function CopyOnLink(info,tab)
 {
@@ -76,7 +79,4 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
   }
 });
 
-function onRecvLinkInfo(info) {
-  _linkinfo = info;
-}
-browser.runtime.onMessage.addListener(onRecvLinkInfo);
+
