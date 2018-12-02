@@ -1,12 +1,11 @@
 {
-
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
   
-  "version": "2.1.2",
+  "version": "2.2",
   "default_locale": "en",
-  "homepage_url": "https://addons.mozilla.org/zh-CN/firefox/addon/copy-linktab-name-and-url/",
+  "homepage_url": "https://addons.mozilla.org/firefox/addon/copy-linktab-name-and-url/",
 
   "developer": {
     "name": "Ren Wei"
@@ -20,16 +19,16 @@
     {
       "matches": ["<all_urls>"],
       "js": ["content-script.js"],
-      "run_at": "document_end"
+      "run_at": "document_start"
     }
   ],
   
   "permissions": [
-    "contextMenus",
     "activeTab",
-    "tabs",
     "clipboardWrite",
-    "storage"
+    "contextMenus",
+    "storage",
+    "tabs"
   ],
   
   "icons": {
