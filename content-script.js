@@ -1,4 +1,4 @@
-
+var browser = chrome;
 // 拷贝到剪贴板
 function CopyLinkNameandurlToClipboard(text) {
   function oncopy(event) {
@@ -21,7 +21,7 @@ function CopyLinkNameandurlToClipboard(text) {
 function notifyClnuExtensionBackgroudjs(e) {
   var ele = e.target;
   if (ele.tagName == "A") {
-    browser.runtime.sendMessage({"url": ele.href, "name":ele.innerHTML});
+    browser.runtime.sendMessage({"url": ele.href, "name":ele.textContent});
   } else if (ele.tagName == "IMG" ) {
     var url = ele.parentNode.href;
     var name = ele.alt || ele.src;

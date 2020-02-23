@@ -1,24 +1,19 @@
 /*
 Create all the context menu items.
 */
+var browser=chrome;
+
 browser.contextMenus.create({
   id: "clnu-link-context-n",
   title: browser.i18n.getMessage("contextMenuItemOnLink"),
   contexts: ["link"]
 });
 
-function createContextMenuItemOnTab(info) {
-  var mainversn = parseInt(info.version.split(".",1)[0]);
-  var onwhat = 'tab';
-  if (mainversn<53) {onwhat="all";}
-  
-  browser.contextMenus.create({
-    id: "clnu-tab-context-n",
-    title: browser.i18n.getMessage("contextMenuItemOnTab"),
-    contexts: [onwhat]
-  });
-}
-browser.runtime.getBrowserInfo().then(createContextMenuItemOnTab);
+browser.contextMenus.create({
+  id: "clnu-tab-context-n",
+  title: browser.i18n.getMessage("contextMenuItemOnTab"),
+  contexts: ['page']
+});
 
 
 
@@ -29,15 +24,17 @@ browser.runtime.onMessage.addListener(function (info) {
 
 function CopyOnLink(info,tab)
 {
-  browser.storage.local.get('format').then((res) => {
+  browser.storage.local.get('format', (res) => {
+    if (_linkinfo!=undefined && _linkinfo != null && _linkinfo.url != undefined) {
     formatvalue = res.format || '%U %T';
     browser.tabs.sendMessage(tab.id, formatvalue.replace('%U',_linkinfo.url).replace('%T',_linkinfo.name));
+    }
   });
     //browser.tabs.sendMessage(tab.id, _linkinfo.url+ ' '+ _linkinfo.name);
 }
 function CopyOnTab(tab)
 {
-  browser.storage.local.get('format').then((res) => {
+  browser.storage.local.get('format',(res) => {
     formatvalue = res.format || '%U %T';
     browser.tabs.sendMessage(tab.id, formatvalue.replace('%U',tab.url).replace('%T', tab.title));
   });
