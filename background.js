@@ -3,6 +3,7 @@ Create all the context menu items.
 */
 var browser=chrome;
 
+
 browser.storage.local.get("formats",(result)=>{
     if (!result) {
         return
@@ -34,20 +35,22 @@ browser.runtime.onMessage.addListener(function (info) {
   _linkinfo = info;
 });
 
-function CopyOnLink(info,tab)
+function CopyOnLink(info,tab,id)
 {
-  browser.storage.local.get('format', (res) => {
+  browser.storage.local.get('formats', (res) => {
     if (_linkinfo!=undefined && _linkinfo != null && _linkinfo.url != undefined) {
-    formatvalue = res.format || '%U %T';
+    var formats = JSON.parse(res["formats"])
+    formatvalue = formats[id].format || '%U %T';
     browser.tabs.sendMessage(tab.id, formatvalue.replace('%U',_linkinfo.url).replace('%T',_linkinfo.name));
     }
   });
     //browser.tabs.sendMessage(tab.id, _linkinfo.url+ ' '+ _linkinfo.name);
 }
-function CopyOnTab(tab)
+function CopyOnTab(tab,id)
 {
-  browser.storage.local.get('format',(res) => {
-    formatvalue = res.format || '%U %T';
+  browser.storage.local.get('formats',(res) => {
+    var formats = JSON.parse(res["formats"])
+    formatvalue = formats[id].format || '%U %T';
     browser.tabs.sendMessage(tab.id, formatvalue.replace('%U',tab.url).replace('%T', tab.title));
   });
     //browser.tabs.sendMessage(tab.id,tab.url+ ' '+ tab.title);
@@ -57,14 +60,13 @@ function CopyOnTab(tab)
 The click event listener, where we perform the appropriate action given the
 ID of the menu item that was clicked.
 */
-browser.contextMenus.onClicked.addListener(function(info, tab) {
-  switch (info.menuItemId) {
-    case "clnu-link-context-n":
-      CopyOnLink(info,tab);
-      break;
-    case "clnu-tab-context-n":
-      CopyOnTab(tab);
-      break;
+browser.contextMenus.onClicked.addListener((info, tab)=>{
+  if (info.menuItemId.startsWith("clnu-link-context-n")) {
+    var id = Number(info.menuItemId.substr(19))
+    CopyOnLink(info,tab, id);
+  } else if (info.menuItemId.startsWith("clnu-tab-context-n")) {
+    var id = Number(info.menuItemId.substr(18))
+    CopyOnTab(tab, id);
   }
 });
 
