@@ -3,19 +3,28 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script src="options.js"></script>
+    <style type="text/css" media="all">
+        table { margin:15px 0; width:98%; border: 1px solid black; border-collapse: collapse;}
+        table td,th { border: 1px solid black; width:30%;}
+        span { display:block;line-height:100%;}
+        tbody td { padding-left: 3px; padding-right: 3px;}
+        table td input { width:98%; }
+        table a { float:left; margin:0 3px; }
+        input.btn { max-width:100px; display:inline; margin-right: 15px; }
+    </style>
   </head>
 
 <body>
-  <form>
-    <fieldset>
-      <legend id="Options">Options</legend>
-      <p id="optionslegend"></p>
-      <p id="examples">BBcode: [url=%U]%T[/url] , Markdown: [%T](%U)</p>
-      <input type="text" id="format" >
-      <button type="submit" id="btnsave">Save</button>
-    </fieldset>
-  </form>
-  <script src="options.js"></script>
+    <table id="formatstable">
+      <thead>
+        <tr id="tablehead"><th id="formatname">name</th><th id="format">format</th><th id="op">operation</th></tr>
+      </thead>
+      <tbody id="formats"></tbody>
+    </table>
+    
+      <input class="btn" type="button" id="btnadd" value="Add" />
+      <input class="btn" type="button" id="btnsave" value="Save" />
 </body>
 
 </html>

@@ -27,10 +27,25 @@
     "message": "Save",
     "description": "string"
   },
+  "stringAdd": {
+    "message": "Add",
+    "description": "string"
+  },
+  "stringDel": {
+    "message": "Del",
+    "description": "string"
+  },
   
-  "stringOptions": {
-    "message": "Options",
+  "stringFormat": {
+    "message": "Format",
+    "description": "string"
+  },
+  "stringFormatName": {
+    "message": "Name",
+    "description": "string"
+  },
+  "stringOp": {
+    "message": "Operation",
     "description": "string"
   }
-  
 }

@@ -1,4 +1,4 @@
-{
+﻿{
   "extensionName": {
     "message": "复制链接/标签名称和地址",
     "description": "Name of the extension."
@@ -28,9 +28,25 @@
     "message": "保存",
     "description": "string"
   },
+  "stringAdd": {
+    "message": "添加格式",
+    "description": "string"
+  },
+  "stringDel": {
+    "message": "删除",
+    "description": "string"
+  },
   
-  "stringOptions": {
-    "message": "选项",
+  "stringFormat": {
+    "message": "格式",
+    "description": "string"
+  },
+  "stringFormatName": {
+    "message": "名称",
+    "description": "string"
+  },
+  "stringOp": {
+    "message": "操作",
     "description": "string"
   }
 }
