@@ -120,7 +120,7 @@ function restoreOptions() {
     addBtn.onclick = addrow;
 
     browser.storage.local.get("formats",(result)=>{
-        if (!result) {
+        if (!result || !result["formats"]) {
             return
         }
         var formats = JSON.parse(result["formats"])
