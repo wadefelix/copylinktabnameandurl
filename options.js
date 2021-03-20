@@ -119,7 +119,7 @@ function restoreOptions() {
     };
     addBtn.onclick = addrow;
 
-    var formats_query = browser.storage.local.get("formats",(result)=>{
+    browser.storage.local.get("formats",(result)=>{
         if (!result) {
             return
         }

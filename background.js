@@ -3,17 +3,29 @@ Create all the context menu items.
 */
 var browser=chrome;
 
-browser.contextMenus.create({
-  id: "clnu-link-context-n",
-  title: browser.i18n.getMessage("contextMenuItemOnLink"),
-  contexts: ["link"]
-});
-
-browser.contextMenus.create({
-  id: "clnu-tab-context-n",
-  title: browser.i18n.getMessage("contextMenuItemOnTab"),
-  contexts: ['page']
-});
+browser.storage.local.get("formats",(result)=>{
+    if (!result) {
+        return
+    }
+    var formats = JSON.parse(result["formats"])
+    var prefix = browser.i18n.getMessage("contextMenuItemOnLink")
+    if (formats.length>1) {
+        prefix = ""
+    }
+    for (var i in formats) {
+        //addrow(Array(formats[i].name, formats[i].format))
+        browser.contextMenus.create({
+            id: "clnu-link-context-n"+i,
+            title: prefix+formats[i].name,
+            contexts: ["link"]
+        });
+        browser.contextMenus.create({
+            id: "clnu-tab-context-n"+i,
+            title: prefix+formats[i].name,
+            contexts: ["page"]
+        });
+    }
+})
 
 
 
