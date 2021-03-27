@@ -1,5 +1,10 @@
 var browser = chrome;
 
+/**
+ * formats: [
+ *   {"name": "format name", "format": "format pattern"}
+ * ]
+ */ 
 // 将数据保存到local storage中
 function saveOptions(allData) {
     var allformats = Array();
